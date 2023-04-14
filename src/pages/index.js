@@ -20,22 +20,9 @@ export default function Home() {
 
   const downloadImage = async () => {
     const phoneScreen = document.querySelector('#phoneScreen');
+    const canvas = await html2canvas(phoneScreen, { scale: 2 });
 
-    // Add padding around the phone screen for cropping
-    const padding = 2;
-    const paddedWidth = phoneScreen.clientWidth + padding * 2;
-    const paddedHeight = phoneScreen.clientHeight + padding * 2;
-
-    // Render the phone screen onto a padded canvas
-    const canvas = await html2canvas(phoneScreen, {
-      scale: 2,
-      width: paddedWidth,
-      height: paddedHeight,
-      x: -padding,
-      y: -padding,
-    });
-
-    // Download the image
+    // Download the cropped image
     canvas.toBlob((blob) => {
       fileDownload(blob, 'phone-background.jpeg');
     }, 'image/jpeg');
