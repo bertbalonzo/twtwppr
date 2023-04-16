@@ -15,7 +15,7 @@ const resolutions = [
 
 export default function Home() {
   const [selectedResolution, setSelectedResolution] = useState(resolutions[0]);
-  const [bgColor, setBgColor] = useState('#ffffff');
+  const [bgColor, setBgColor] = useState('#000000');
   const [uploadedImage, setUploadedImage] = useState(null);
 
   const downloadImage = async () => {
